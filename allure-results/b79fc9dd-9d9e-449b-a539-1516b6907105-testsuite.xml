@@ -1,0 +1,42 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1597855015284' stop='1597855015295'>
+    <name>Mock service tests</name>
+    <title>Mock service tests</title>
+    <test-cases>
+        <test-case start='1597855015284' status='failed' stop='1597855015295'>
+            <name>should work</name>
+            <title>should work</title>
+            <labels>
+                <label name='epic' value='FRP-1'/>
+                <label name='feature' value='API tests'/>
+            </labels>
+            <parameters>
+                <parameter kind='environment-variable' name='mockUrl' value='http://ec2-18-196-8-201.eu-central-1.compute.amazonaws.com:3000'/>
+                <parameter kind='environment-variable' name='idServiceUrl' value=''/>
+            </parameters>
+            <steps>
+                <step start='1597855015286' status='failed' stop='1597855015288'>
+                    <name>GET: /?factoryId=123&amp;callback=aHR0cDovL2VjMi0xOC0xOTYtOC0yMDEuZXUtY2VudHJhbC0xLmNvbXB1dGUuYW1hem9uYXdzLmNvbTozMDAw</name>
+                    <title>GET: /?factoryId=123&amp;callback=aHR0cDovL2VjMi0xOC0xOTYtOC0yMDEuZXUtY2VudHJhbC0xLmNvbXB1dGUuYW1hem9uYXdzLmNvbTozMDAw</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <failure>
+                <message>TypeError: Only absolute URLs are supported</message>
+                <stack-trace>TypeError: Only absolute URLs are supported
+                    at getNodeRequestOptions (C:\Users\Stanislav_Ursakii\Documents\repo\ts-service-mock-test\node_modules\node-fetch\lib\index.js:1299:9)
+                    at C:\Users\Stanislav_Ursakii\Documents\repo\ts-service-mock-test\node_modules\node-fetch\lib\index.js:1404:19
+                    at new Promise (&lt;anonymous>)
+                    at Function.fetch [as default] (C:\Users\Stanislav_Ursakii\Documents\repo\ts-service-mock-test\node_modules\node-fetch\lib\index.js:1401:9)
+                    at C:\Users\Stanislav_Ursakii\Documents\repo\ts-service-mock-test\utils\api\common.ts:94:37
+                    at Generator.next (&lt;anonymous>)
+                    at C:\Users\Stanislav_Ursakii\Documents\repo\ts-service-mock-test\utils\api\common.ts:8:71
+                    at new Promise (&lt;anonymous>)
+                    at __awaiter (C:\Users\Stanislav_Ursakii\Documents\repo\ts-service-mock-test\utils\api\common.ts:4:12)
+                    at Object.exports.makeRequest (C:\Users\Stanislav_Ursakii\Documents\repo\ts-service-mock-test\utils\api\common.ts:85:101)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

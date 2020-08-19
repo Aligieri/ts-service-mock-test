@@ -13,16 +13,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/szikszail/ts-service-test-seed.git"
+    "url": "git+https://github.com/Aligieri/ts-service-mock-test.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/szikszail/ts-service-test-seed/issues"
+    "url": "https://github.com/Aligieri/ts-service-mock-test/issues"
   },
-  "homepage": "https://github.com/szikszail/ts-service-test-seed#readme",
+  "homepage": "https://github.com/Aligieri/ts-service-mock-testd#readme",
   "devDependencies": {
-    "@types/jest": "^26.0.9",
+    "@types/jest": "^26.0.10",
     "@types/jest-expect-message": "^1.0.2",
     "@types/jest-json-schema": "^2.1.2",
     "@types/node-fetch": "^2.5.7",

@@ -1,0 +1,21 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1597844591265' stop='1597844591273'>
+    <name>Initial</name>
+    <title>Initial</title>
+    <test-cases>
+        <test-case start='1597844591265' status='passed' stop='1597844591272'>
+            <name>should work</name>
+            <title>should work</title>
+            <labels>
+                <label name='epic' value='TA'/>
+                <label name='feature' value='API tests'/>
+            </labels>
+            <parameters>
+                <parameter kind='environment-variable' name='url' value='https://jsonplaceholder.typicode.com'/>
+                <parameter kind='environment-variable' name='poc' value='http://localhost:3000'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

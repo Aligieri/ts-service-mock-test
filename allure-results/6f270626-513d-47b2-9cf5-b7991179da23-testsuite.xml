@@ -1,0 +1,36 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1597855880012' stop='1597855880165'>
+    <name>Mock service tests</name>
+    <title>Mock service tests</title>
+    <test-cases>
+        <test-case start='1597855880013' status='passed' stop='1597855880164'>
+            <name>should work</name>
+            <title>should work</title>
+            <labels>
+                <label name='epic' value='FRP-1'/>
+                <label name='feature' value='API tests'/>
+            </labels>
+            <parameters>
+                <parameter kind='environment-variable' name='mockUrl' value='http://ec2-18-196-8-201.eu-central-1.compute.amazonaws.com:3000'/>
+                <parameter kind='environment-variable' name='idServiceUrl' value='http://ec2-18-196-8-201.eu-central-1.compute.amazonaws.com:3000/_data'/>
+            </parameters>
+            <steps>
+                <step start='1597855880014' status='passed' stop='1597855880120'>
+                    <name>GET: http://ec2-18-196-8-201.eu-central-1.compute.amazonaws.com:3000/_data/?factoryId=123&amp;callback=aHR0cDovL2VjMi0xOC0xOTYtOC0yMDEuZXUtY2VudHJhbC0xLmNvbXB1dGUuYW1hem9uYXdzLmNvbTozMDAw</name>
+                    <title>GET: http://ec2-18-196-8-201.eu-central-1.compute.amazonaws.com:3000/_data/?factoryId=123&amp;callback=aHR0cDovL2VjMi0xOC0xOTYtOC0yMDEuZXUtY2VudHJhbC0xLmNvbXB1dGUuYW1hem9uYXdzLmNvbTozMDAw</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1597855880137' status='passed' stop='1597855880140'>
+                    <name> -> response body</name>
+                    <title> -> response body</title>
+                    <attachments>
+                        <attachment title='data' source='4737c054-6d01-422c-aaae-cc0a7c17405a-attachment.json' type='application/json' size='1177'/>
+                    </attachments>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

@@ -1,5 +1,5 @@
 import fetch, { Response, RequestInit } from 'node-fetch';
-import { env } from '../../config';
+import environment from '../../config';
 import * as STATUS from 'http-status';
 import { Status } from 'jest-allure/dist/Reporter';
 
@@ -8,11 +8,9 @@ export { STATUS };
 export const MIME_JSON = 'application/json';
 export const CONTENT_TYPE_HEADER = 'content-type';
 
-const environment = env();
-
 export const prepareUrl = (url: string, base?: string): string => {
     if (!/^https?:/i.test(url)) {
-        base = base || environment.url;
+        base = base || environment.idServiceUrl;
         return [
             base.replace(/\/$/, ''),
             url.replace(/^\//, '')
