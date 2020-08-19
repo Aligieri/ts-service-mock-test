@@ -12,7 +12,7 @@ describe('ID service tests', () => {
     });
 
     test('should work', async() => {
-        const response = await requestId("100", base64encode(environment.mockUrl))
+        const response = await requestId('100', base64encode(environment.mockUrl))
         response.assertStatus(OK);
         const value = await response.parse();
         expect(value).toMatchSchema(ERROR);
