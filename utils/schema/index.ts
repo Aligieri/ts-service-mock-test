@@ -6,10 +6,18 @@ export const ERROR = {
     properties: {
         error: {
             type: 'string'
-        },
-        stack: {
-            type: 'string'
         }
     },
     required: ['error']
+};
+
+export const OK = {
+    $id: 'ok',
+    type: 'object',
+    properties: {
+        id: {
+            type: 'string'
+        }
+    },
+    required: ['id']
 };
