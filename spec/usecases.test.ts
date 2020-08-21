@@ -13,6 +13,8 @@ describe('ID service integration tests', () => {
 
 
     test('Positive case: Service return valid ApplID', async () => {
+        reporter.addLabel('tag', 'TC-6');
+
         // Given
         const factoryId = generateFactoryID(14000, 15000);
         const laptop = await makeNewLaptop(factoryId);
@@ -37,6 +39,8 @@ describe('ID service integration tests', () => {
     });
 
     test('Negative case: Failed ID processing', async () => {
+        reporter.addLabel('tag', 'TC-11');
+
         // Given
         const factoryId = generateFactoryID(14000, 15000);
         const laptop = await makeNewLaptop(factoryId);
@@ -64,6 +68,8 @@ describe('ID service integration tests', () => {
     });
 
     test('Negative case: ID processing timeout', async () => {
+        reporter.addLabel('tag', 'TC-16');
+
         // Given
         const factoryId = generateFactoryID(14000, 15000);
         const laptop = await makeNewLaptop(factoryId);

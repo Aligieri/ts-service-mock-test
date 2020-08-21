@@ -18,12 +18,16 @@ describe('ID service tests', () => {
     });
 
     test('ID service should return 200 OK', async () => {
+        reporter.addLabel('tag', 'TC-1');
+
         const idRequest = await requestId(generateFactoryID(1000, 9000), base64encode(environment.mockUrl))
         idRequest.assertStatus(OK);
     });
 
     for (const invalidId of INVALID_FACTORY_IDS) {
         test(`ID service should return 400 with proper Error for invalid factory ID: ${invalidId}`, async () => {
+            reporter.addLabel('tag', 'TC-2');
+
             const idRequest = await requestId(invalidId, base64encode(environment.mockUrl));
             idRequest.assertStatus(BAD_REQUEST);
 
@@ -35,6 +39,8 @@ describe('ID service tests', () => {
 
     for (const callback of INVALID_CALLBACKS) {
         test(`ID service should return 400 with proper Error for invalid callback url, data: ${callback}`, async () => {
+            reporter.addLabel('tag', 'TC-3');
+
             const idRequest = await requestId(generateFactoryID(1000, 9000), callback);
             idRequest.assertStatus(BAD_REQUEST);
 
@@ -45,6 +51,8 @@ describe('ID service tests', () => {
     }
 
     test('ID service should return 400 with proper Error for missing factory ID', async () => {
+        reporter.addLabel('tag', 'TC-4');
+
         const idResponse = await requestIdwithoutFactoryId(base64encode(environment.mockUrl))
         idResponse.assertStatus(BAD_REQUEST);
 
@@ -54,6 +62,8 @@ describe('ID service tests', () => {
     });
 
     test('ID service should return 400 with proper Error for missing callback url', async () => {
+        reporter.addLabel('tag', 'TC-5');
+
         const idResponse = await requestIdwithoutCallback(generateFactoryID(1000, 9000));
         idResponse.assertStatus(BAD_REQUEST);
 
