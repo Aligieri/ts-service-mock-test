@@ -4,7 +4,7 @@ import { getAllRequestsForToken } from './api/factory';
 export const checkForCallbacks = async (timeoutSec: number, token: string) => {
     let i = 0;
     while(i < timeoutSec){
-        const response : any = await (await getAllRequestsForToken(token)).parse();
+        const response = await (await getAllRequestsForToken(token)).parse();
         if(response.requests.length){
             return response
         }

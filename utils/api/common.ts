@@ -11,7 +11,7 @@ export const SESSION_ID_HEADER = 'x-test-session-id';
 
 export const prepareUrl = (url: string, base?: string): string => {
     if (!/^https?:/i.test(url)) {
-        base = base || environment.idServiceUrl;
+        base = base || environment.requestIdUrl;
         return [
             base.replace(/\/$/, ''),
             url.replace(/^\//, '')
