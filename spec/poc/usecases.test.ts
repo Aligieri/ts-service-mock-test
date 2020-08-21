@@ -30,7 +30,7 @@ describe('ID service integration tests', () => {
         // const responseB = await requestId(String(factoryId), callbackUrlBase64);
         // responseB.assertStatus(OK);
         // delete later
-        const postResponse = await httpPost(callbackUrl, { "id": `appl${factoryId}_8` });
+        const postResponse = await httpPost(callbackUrl, { 'id': `appl${factoryId}_8` });
         postResponse.assertStatus(OK);
 
         // Then
