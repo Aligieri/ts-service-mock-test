@@ -7,6 +7,7 @@ export { STATUS };
 
 export const MIME_JSON = 'application/json';
 export const CONTENT_TYPE_HEADER = 'content-type';
+export const SESSION_ID_HEADER = 'x-test-session-id';
 
 export const prepareUrl = (url: string, base?: string): string => {
     if (!/^https?:/i.test(url)) {
@@ -39,6 +40,17 @@ export interface Empty {
 }
 
 export type HTTP_METHOD = 'GET' | 'POST' | 'PUT' | 'DELETE';
+
+const addSessionId = (sessionId: string, options?: RequestInit): RequestInit => {
+    if (!options) {
+        options = init();
+    }
+    options.headers = {
+        ...(options.headers || {}),
+        [SESSION_ID_HEADER]: sessionId,
+    };
+    return options;
+};
 
 const init = (): RequestInit => ({});
 const json = <T = string>(body: T, options?: RequestInit): RequestInit => {
@@ -82,14 +94,15 @@ export class APIResponse<T> {
     }
 }
 
-export const makeRequest = async <R>(url: string, options?: RequestInit): Promise<APIResponse<R>> => {
+export const makeRequest = async <R>(url: string, options?: RequestInit, skipSessionId = false): Promise<APIResponse<R>> => {
     url = prepareUrl(url);
-    if (options) {
-        reporter.startStep(`${options.method || 'GET'}: ${url}`);
-        reporter.addAttachment('options', JSON.stringify(options, null, 2), 'application/json');
-    } else {
-        reporter.startStep(`GET: ${url}`);
+    options = options || {};
+    if (!skipSessionId){
+        options = addSessionId(environment.sessionId, options);
     }
+    reporter.startStep(`${options.method || 'GET'}: ${url}`);
+    reporter.addAttachment('options', JSON.stringify(options, null, 2), 'application/json');
+
     try {
         const response = await fetch(url, options);
         reporter.endStep(Status.Passed);
@@ -98,7 +111,7 @@ export const makeRequest = async <R>(url: string, options?: RequestInit): Promis
         reporter.endStep(Status.Failed);
         throw e;
     }
-}
+};
 
 export const httpGet = async <R>(url: string): Promise<APIResponse<R>> => {
     return await makeRequest<R>(url);
