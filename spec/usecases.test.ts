@@ -36,6 +36,8 @@ describe('ID service integration tests', () => {
 
         // Then
         const { requests: callbackRequests } = await checkForCallbacks(5, token);
+        expect(callbackRequests.length, 'No ID has been received!').toBeGreaterThan(0);
+
         const request = callbackRequests[0];
         expect(request.status).toBe(OK);
         expect(request.body.id).toMatch(new RegExp(`^appl${factoryId}_[1-9]\d*$`));
@@ -65,6 +67,8 @@ describe('ID service integration tests', () => {
 
         // Then
         const { requests: callbackRequests } = await checkForCallbacks(5, token);
+        expect(callbackRequests.length, 'No ID has been received!').toBeGreaterThan(0);
+
         const request = callbackRequests[0];
         expect(request.status).toBe(CONFLICT);
         expect(request.body.id).toMatch(new RegExp(`^appl${factoryId}_[1-9]\d*$`));
@@ -94,6 +98,8 @@ describe('ID service integration tests', () => {
 
         // Then
         const { requests: callbackRequests } = await checkForCallbacks(5, token);
+        expect(callbackRequests.length, 'No ID has been received!').toBeGreaterThan(0);
+
         const request = callbackRequests[0];
         expect(request.status).toBe(REQUEST_TIMEOUT);
         expect(request.body.id).toMatch(new RegExp(`^appl${factoryId}_[1-9]\d*$`));
