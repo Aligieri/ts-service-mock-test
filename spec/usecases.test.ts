@@ -8,7 +8,10 @@ import { generateFactoryID } from '../utils/generators';
 
 describe('ID service integration tests', () => {
     beforeEach(() => {
-        allureReporter().epic('Id application').feature('Integration').story('IRD-1, FRP-2');
+        allureReporter()
+            .epic('ID Application')
+            .feature('Integration with factories')
+            .story('IRD-1, FRP-2');
     });
 
 

@@ -12,8 +12,8 @@ describe('ID service tests', () => {
 
     beforeEach(() => {
         allureReporter()
-            .epic('Id application')
-            .feature('Id requests')
+            .epic('ID application')
+            .feature('Requesting ID')
             .story('FRP-1');
     });
 
